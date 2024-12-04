@@ -16,7 +16,7 @@ export default function FormGenerator() {
     const handleForm = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3000/api/certificates', {
+            const response = await fetch('https://novanectarx-backend.vercel.app/api/certificates', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -38,7 +38,7 @@ export default function Check() {
     const handleVerify = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:3000/api/verify/${certificateId}`);
+            const response = await fetch(`https://novanectarx-backend.vercel.app/api/verify/${certificateId}`);
             console.log("Function Hit")
             const data = await response.json();
             if (response.ok) {
