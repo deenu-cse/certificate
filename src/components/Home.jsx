@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/Home.css';
 import Nav from './Nav';
 import Certificate from './Certificate';
+import btnloading from '../assets/imgcer/btnloading.gif'
 
 export default function FormGenerator() {
     const [data, setData] = useState({
@@ -9,12 +10,15 @@ export default function FormGenerator() {
         internshipField: '',
     });
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const handleInput = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
 
     const handleForm = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         try {
             const response = await fetch('https://novanectarx-backend.vercel.app/api/certificates', {
                 method: 'POST',
@@ -36,6 +40,8 @@ export default function FormGenerator() {
             }
         } catch (error) {
             console.error('An error occurred in genrating the Certificate:', error);
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -78,7 +84,7 @@ export default function FormGenerator() {
                             />
                         </div>
                         <button type="submit" className="submit-button">
-                            Generate Certificate
+                        {isLoading ? <img src={btnloading} alt="Loading..." className="btn-loading" /> : "Generate Certificate"}
                         </button>
                     </form>
                 </div>

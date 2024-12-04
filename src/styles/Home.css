@@ -84,3 +84,7 @@
 .submit-button:hover {
     background: #1d3557;
 }
+
+.btn-loading{
+    width: 30px;
+}

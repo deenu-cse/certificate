@@ -3,6 +3,7 @@ import Nav from './Nav';
 import React, { useState, useCallback, useRef } from 'react'
 import certificate from '../assets/imgcer/cer1.png'
 import { toPng } from 'html-to-image';
+import btnloading from '../assets/imgcer/btnloading.gif'
 
 export default function Check() {
     const [certificateId, setCertificateId] = useState('');
@@ -13,6 +14,8 @@ export default function Check() {
 
 
     const ref = useRef(null)
+
+    const [isLoading, setIsLoading] = useState(false);
 
     const handdleDownload = useCallback(() => {
         if (ref.current === null) {
@@ -37,6 +40,7 @@ export default function Check() {
 
     const handleVerify = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         try {
             const response = await fetch(`https://novanectarx-backend.vercel.app/api/verify/${certificateId}`);
             console.log("Function Hit")
@@ -51,6 +55,8 @@ export default function Check() {
         } catch (error) {
             setResult({ isVerified: false, message: 'Certificate not found!' });
             setOpen(false);
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -80,7 +86,9 @@ export default function Check() {
                                 required
                             />
                         </div>
-                        <button type="submit" className="verify-button">Verify Certificate</button>
+                        <button type="submit" className="verify-button">
+                            {isLoading ? <img src={btnloading} alt="Loading..." className="btn-loading" /> : "Verify Certificate"}
+                        </button>
                     </form>
                     {result && (
                         <>
