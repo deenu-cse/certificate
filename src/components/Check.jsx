@@ -94,21 +94,21 @@ export default function Check() {
                                             <p><strong>Internship Field:</strong> {result.data.internshipField}</p>
                                             <p><strong>Issue Date:</strong> {new Date(result.data.issueDate).toLocaleDateString()}</p>
                                         </div>
+                                        <div className="containerc" ref={ref}>
+                                            <img className='certificate-body' src={certificate} height={400} />
+                                            <div className="content">
+                                                <h1>{result.data.studentName}</h1>
+                                                <p>{result.data.internshipField}</p>
+                                                <h5>{result.data.certificateId}</h5>
+                                                <img src={result.data.qrCodeUrl} alt="QR Code" />
+                                                <h6>Verify Now</h6>
+                                            </div>
+                                        </div>
+                                        <div className="bttn">
+                                            <button className='verify-buttonx' onClick={handdleDownload}>Download Certificate</button>
+                                        </div>
                                     </>
                                 )}
-                            </div>
-                            <div className="containerc" ref={ref}>
-                                <img className='certificate-body' src={certificate} height={400} />
-                                <div className="content">
-                                    <h1>{result.data.studentName}</h1>
-                                    <p>{result.data.internshipField}</p>
-                                    <h5>{result.data.certificateId}</h5>
-                                    <img src={result.data.qrCodeUrl} />
-                                    <h6>Verify Now</h6>
-                                </div>
-                            </div>
-                            <div className="bttn">
-                                <button className='verify-buttonx' onClick={handdleDownload}>Download Certificate</button>
                             </div>
                         </>
                     )}
