@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.form-generator-container {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #1d3557, #457b9d);
+    color: #f1faee;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.header-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.company-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.tagline {
+    font-size: 16px;
+    font-style: italic;
+    margin-top: 5px;
+    color: #a8dadc;
+}
+
+.forms {
+    background: #f1faee;
+    padding: 20px;
+    border-radius: 10px;
+    color: #1d3557;
+}
+
+.forms h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1d3557;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 96%;
+    padding: 10px;
+    border: 1px solid #457b9d;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.submit-button {
+    width: 100%;
+    background: #457b9d;
+    color: #f1faee;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+    background: #1d3557;
+}
